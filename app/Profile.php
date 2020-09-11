@@ -10,10 +10,4 @@ class Profile extends Model
         return $this->hasOne(User::class);
     }
 
-    public function __construct($user_name)
-    {
-        $this->user_name = $user_name;
-        $this->user_status = "user";
-        $this->posts_number = 0;
-    }
 }

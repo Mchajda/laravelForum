@@ -30,5 +30,5 @@ Route::resource('room', 'RoomsController');
 Route::get('/room/create', 'RoomsController@create');
 Route::post('/room/create', 'RoomsController@store');
 
-Route::get('/yourprofile', 'ProfilesController@index');
+Route::get('/profile/{id}', 'ProfilesController@index');
 

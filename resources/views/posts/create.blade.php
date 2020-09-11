@@ -31,6 +31,7 @@
                             <input type="hidden" name="parent_id" value="0">
                             <input type="hidden" name="user_id" value="{{ $user->id }}">
                             <input type="hidden" name="room_id" value="{{ $room->id }}">
+                            <input type="hidden" name="room_name" value="{{ $room->name }}">
                         </div>
                     </div>
                 </form>

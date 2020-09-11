@@ -13,7 +13,7 @@
                         <div class="card-footer">
                             <small class="d-flex justify-content-between align-items-baseline">{{ $post->author }} | {{ $post->created_at }}
                                 @if($post->author == $user->name)
-                                    <a href="/delete/{{ $post->id }}" class="btn btn-sm btn-danger">X</a>
+                                    <a href="/delete/{{ $post->id }}" class="btn btn-sm btn-danger">Usuń post</a>
                                 @endif
                             </small>
                         </div>
@@ -26,7 +26,7 @@
                                 <div class="card-header">
                                     <div class="d-flex justify-content-between align-items-baseline">{{ $comment->author }} | {{ $comment->created_at }}
                                         @if($comment->author == $user->name)
-                                            <a href="/delete/{{ $comment->id }}" class="btn btn-sm btn-danger">X</a>
+                                            <a href="/delete/{{ $comment->id }}" class="btn btn-sm btn-danger">Usuń komentarz</a>
                                         @endif
                                     </div>
                                 </div>
@@ -51,6 +51,7 @@
                                 <input type="hidden" name="author" value="{{ $user->name }}">
                                 <input type="hidden" name="parent_id" value="{{ $post->id }}">
                                 <input type="hidden" name="room_id" value="{{ $post->room_id }}">
+                                <input type="hidden" name="room_name" value="{{ $post->room_name }}">
                                 <input type="hidden" name="user_id" value="{{ $user->id }}">
 
                                 <div class="input-group-append">

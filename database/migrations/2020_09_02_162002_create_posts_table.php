@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->mediumText('content');
             $table->mediumText('parent_id');
             $table->mediumText('room_id');
+            $table->mediumText('room_name');
 
             $table->timestamps();
 

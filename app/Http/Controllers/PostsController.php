@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Profile;
 use App\Room;
 use App\User;
 use Illuminate\Http\Request;
@@ -32,10 +33,17 @@ class PostsController extends Controller
             'content' => 'required',
             'parent_id' => 'required',
             'room_id' => 'required',
+            'room_name' => 'required',
             'user_id' => 'required',
         ]);
 
         auth()->user()->posts()->create($data);
+
+        //increasing number of posts of a user
+
+        $user_profile = Profile::where('id', auth()->user()->id)->get();
+        $user_profile->first()->posts_number++;
+        $user_profile->first()->save();
 
         if($data['parent_id'] == 0){
             return redirect('/room/'.$data['room_id']);
@@ -59,6 +67,10 @@ class PostsController extends Controller
     public function delete($id){
         $post = Post::where('id', $id)->delete();
         $comments = Post::where('parent_id', $id)->delete();
+
+        $user_profile = Profile::where('id', auth()->user()->id)->get();
+        $user_profile->first()->posts_number--;
+        $user_profile->first()->save();
 
         return redirect('/home');
     }

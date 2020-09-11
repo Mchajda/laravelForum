@@ -13,12 +13,12 @@ class ProfilesController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(){
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
-        $posts = Post::where('user_id', $user_id)->where('parent_id', 0)->get();
+    public function index($id){
+        //$user_id = auth()->user()->id;
+        $user = User::find($id);
+        $posts = Post::where('user_id', $id)->where('parent_id', 0)->get();
 
-        return view('profiles.yourprofile', [
+        return view('profiles.profile', [
             'user' => $user,
             'user_posts' => $posts,
         ]);
