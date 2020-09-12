@@ -11,7 +11,8 @@
                         <div class="card-header bg-dark text-light d-flex justify-content-between align-items-baseline"><h4 style="margin: 0px;">{{ $post->title }}</h4><a href="../room/{{$post->room_id}}" class="btn btn-warning">Wróć</a></div>
                         <div class="card-body">{!! $post->content !!}</div>
                         <div class="card-footer">
-                            <small class="d-flex justify-content-between align-items-baseline">{{ $post->author }} | {{ $post->created_at }}
+                            <small class="d-flex justify-content-between align-items-baseline">
+                                <div><a href="/profile/{{ $post->user_id }}">{{ $post->author }}</a> | {{ $post->created_at }}</div>
                                 @if($post->author == $user->name)
                                     <a href="/delete/{{ $post->id }}" class="btn btn-sm btn-danger">Usuń post</a>
                                 @endif
@@ -24,7 +25,8 @@
                         @foreach($comments as $comment)
                             <div class="card  mt-4">
                                 <div class="card-header">
-                                    <div class="d-flex justify-content-between align-items-baseline">{{ $comment->author }} | {{ $comment->created_at }}
+                                    <div class="d-flex justify-content-between align-items-baseline">
+                                        {{ $comment->author }} | {{ $comment->created_at }}
                                         @if($comment->author == $user->name)
                                             <a href="/delete/{{ $comment->id }}" class="btn btn-sm btn-danger">Usuń komentarz</a>
                                         @endif

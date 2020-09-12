@@ -19,7 +19,7 @@
                             <a href="/posts/{{ $post->id }}">
                                 <div>
                                     {{ $post->created_at }} | post
-                                    "{{ $post->title }}" w pokoju {{ $post->room_id }}
+                                    "{{ $post->title }}" w pokoju {{ $post->room_name }}
                                 </div>
                             </a>
                             <div>

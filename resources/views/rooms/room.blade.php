@@ -24,7 +24,7 @@
                         <div class="card mb-4">
                             <a href="/posts/{{ $post->id }}" style="color: inherit;"><div class="card-header"><h4 style="margin: 0px;">{{ $post->title }}</h4></div></a>
                             <div class="card-body">{!! $post->content !!}</div>
-                            <div class="card-footer"><small>{{ $post->author }} | {{ $post->created_at }}</small></div>
+                            <div class="card-footer"><small><a href="/profile/{{ $post->user_id }}">{{ $post->author }}</a> | {{ $post->created_at }}</small></div>
                         </div>
                     @endif
                 @endif
