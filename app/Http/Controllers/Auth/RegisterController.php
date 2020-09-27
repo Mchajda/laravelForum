@@ -66,7 +66,8 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $profile = new Profile();
-
+        $profile_id = Profile::count()+1;
+        $profile->user_id = $profile_id;
         $profile->user_name = $data['name'];
         $profile->user_status = "user";
         $profile->posts_number = 0;

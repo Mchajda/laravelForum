@@ -10,7 +10,9 @@
         <div class="col-12">
             <div class="d-flex justify-content-between">
                 <h2>Forum Loośne gatki</h2>
-                <a href="/room/create">Dodaj pokój</a>
+                @if($profile->user_status == "admin")
+                    <a href="/room/create">Dodaj pokój</a>
+                @endif
             </div>
             @foreach($rooms as $room)
                 @if($room->parent_id == 0)

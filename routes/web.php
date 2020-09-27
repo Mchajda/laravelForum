@@ -32,3 +32,9 @@ Route::post('/room/create', 'RoomsController@store');
 
 Route::get('/profile/{id}', 'ProfilesController@index');
 
+Route::get('/admin', 'AdminController@index');
+Route::get('/admin/ban/{id}', 'AdminController@ban')->name('banUser');
+Route::get('/admin/unban/{id}', 'AdminController@unBan')->name('unBan');
+Route::get('/admin/up/{id}', 'AdminController@upUser')->name('upUser');
+Route::get('/admin/down/{id}', 'AdminController@downUser')->name('downUser');
+

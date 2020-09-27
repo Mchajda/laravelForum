@@ -23,4 +23,5 @@ class ProfilesController extends Controller
             'user_posts' => $posts,
         ]);
     }
+
 }

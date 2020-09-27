@@ -56,6 +56,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <?php
+                                        $profile = \App\Profile::where('id', auth()->user()->id)->get();
+                                        //echo $profile;
+                                        if($profile->first()->user_status == "admin")
+                                            echo '<a class="dropdown-item" href="/admin">Admin page</a>'
+                                    ?>
                                     <a class="dropdown-item" href="/profile/{{ auth()->user()->id }}">Profil</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

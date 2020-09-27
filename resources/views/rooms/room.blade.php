@@ -21,10 +21,11 @@
             @foreach($posts as $post)
                 @if($post->room_id == $room->id)
                     @if($post->parent_id == 0)
-                        <div class="card mb-4">
-                            <a href="/posts/{{ $post->id }}" style="color: inherit;"><div class="card-header"><h4 style="margin: 0px;">{{ $post->title }}</h4></div></a>
-                            <div class="card-body">{!! $post->content !!}</div>
-                            <div class="card-footer"><small><a href="/profile/{{ $post->user_id }}">{{ $post->author }}</a> | {{ $post->created_at }}</small></div>
+                        <div class="jumbotron p-4">
+                            <a href="/posts/{{ $post->id }}" style="color: inherit;"><h3 style="margin: 0px;">{{ $post->title }}</h3></a>
+                            <p class="lead mt-1">{!! $post->content !!}</p>
+                            <hr class="my-3">
+                            <small>utworzone przez: <a href="/profile/{{ $post->user_id }}">{{ $post->author }}</a> | {{ $post->created_at }}</small>
                         </div>
                     @endif
                 @endif

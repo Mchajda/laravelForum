@@ -36,10 +36,12 @@ class RoomsController extends Controller
         $data = request()->validate([
             'name' => 'required',
             'parent' => 'required',
+            //'description' => 'required',
         ]);
 
         $new_room = new Room();
         $new_room->name = $data['name'];
+        //$new_room->description = "";
 
         if($data['parent'] == "Brak"){
             $new_room->parent_id = 0;

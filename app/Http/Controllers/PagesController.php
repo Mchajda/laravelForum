@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Profile;
 use App\Room;
 use App\User;
 use Illuminate\Http\Request;
@@ -31,10 +32,12 @@ class PagesController extends Controller
         //$posts = Post::all();
         $rooms = Room::all();
         //$posts = DB::table('posts')->orderBy('created_at', 'desc')->get();
+        $profile = Profile::find(auth()->user()->id);
 
         return view('home', [
             'user' => $user,
             'rooms' => $rooms,
+            'profile' => $profile,
         ]);
     }
 }
